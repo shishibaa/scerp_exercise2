@@ -75,9 +75,7 @@ label {
     justify-content: center;
     align-items: center;
     display: flex;
-    /* ← เพิ่มบรรทัดนี้ */
     flex-direction: column;
-    /* ← เพิ่มบรรทัดนี้ */
 }
 
 a {
@@ -88,7 +86,7 @@ a {
 
 
 
-.regis-btn {
+#regis-btn {
     background-color: blue;
     display: block;
     margin: auto;
