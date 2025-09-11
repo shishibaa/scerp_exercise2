@@ -56,6 +56,11 @@ input {
     height: 30px;
 }
 
+input {
+    padding: 5px;
+
+}
+
 label {
     margin-bottom: -10px !important;
 }
@@ -101,14 +106,13 @@ a {
 
     .seminar-form,
     .parcitipants {
-        width: 85%;
-        font-size: 2vw;
+        width: 95%;
         margin: 30px auto;
     }
 
     table {
-        width: 85%;
-        font-size: 2vw;
+        width: 95%;
+        font-size: 1.5vw;
     }
 
     h1,
@@ -117,12 +121,13 @@ a {
     }
 
     .div-search {
-        width: 85%;
+        width: 95%;
         margin: auto;
+        font-size: 1.5vw !important;
     }
 
     a {
-        font-size: 2vw !important;
+        font-size: 1.5vw !important;
     }
 }
 
@@ -136,7 +141,7 @@ a {
     }
 
     table {
-        width: 80%;
+        width: 90%;
         font-size: 1.5vw;
     }
 
@@ -146,7 +151,7 @@ a {
     }
 
     .div-search {
-        width: 80%;
+        width: 90%;
         margin: auto;
     }
 
