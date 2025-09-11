@@ -1,0 +1,156 @@
+* {
+    font-family: "Inter";
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+}
+
+#must {
+    color: red;
+}
+
+#search {
+    display: inline-block !important;
+    width: 83% !important;
+    margin: 5px auto !important;
+    padding: 10px;
+}
+
+.search-btn {
+    float: right !important;
+    margin: 5px auto;
+    padding: 5px;
+    width: 15%;
+    background-color: blue;
+    cursor: pointer;
+    border-radius: 2px;
+    color: white;
+}
+
+.div-search {
+    width: 90%;
+    margin: auto;
+}
+
+table {
+    margin: 20px auto;
+    padding: 10px;
+    width: 90%;
+}
+
+table,
+td,
+th {
+    border-collapse: collapse;
+    border: 1px gray solid;
+    padding: 10px;
+}
+
+label,
+input {
+    display: block;
+    width: 95%;
+    margin: 10px auto !important;
+    height: 30px;
+}
+
+label {
+    margin-bottom: -10px !important;
+}
+
+.seminar-form,
+.parcitipants {
+    width: 40%;
+    margin: 100px auto;
+    border: 1px solid black;
+    padding: 50px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    /* ← เพิ่มบรรทัดนี้ */
+    flex-direction: column;
+    /* ← เพิ่มบรรทัดนี้ */
+}
+
+a {
+    text-decoration: none;
+    text-align: center !important;
+    align-items: center;
+}
+
+
+
+.regis-btn {
+    background-color: blue;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 95%;
+    padding: 10px;
+    color: white;
+    margin: 20px auto;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 767px) {
+
+    .seminar-form,
+    .parcitipants {
+        width: 85%;
+        font-size: 2vw;
+        margin: 30px auto;
+    }
+
+    table {
+        width: 85%;
+        font-size: 2vw;
+    }
+
+    h1,
+    h2 {
+        font-size: 3vw !important;
+    }
+
+    .div-search {
+        width: 85%;
+        margin: auto;
+    }
+
+    a {
+        font-size: 2vw !important;
+    }
+}
+
+@media screen and (min-width:767px) and (max-width: 1024px) {
+
+    .seminar-form,
+    .parcitipants {
+        width: 80%;
+        font-size: 2vw;
+        margin: 40px auto;
+    }
+
+    table {
+        width: 80%;
+        font-size: 1.5vw;
+    }
+
+    h1,
+    h2 {
+        font-size: 3vw !important;
+    }
+
+    .div-search {
+        width: 80%;
+        margin: auto;
+    }
+
+    a {
+        font-size: 1.5vw !important;
+    }
+}
