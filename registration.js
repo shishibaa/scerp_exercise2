@@ -7,7 +7,8 @@ const regisBtn = document.getElementById("regis-btn");
 function addParticipants() {
     const inputName = document.getElementById("name-input").value;
     const inputEmail = document.getElementById("email-input").value;
-    const inputPhone = document.getElementById("tel-input").value;
+    const inputPhoneRaw = document.getElementById("tel-input").value;
+    const inputPhone = inputPhoneRaw.replace(/\D/g, ""); // เก็บเฉพาะตัวเลข
     const participants = {
         name: inputName,
         email: inputEmail,
@@ -29,6 +30,12 @@ function addParticipants() {
     const phoneOK = /^\d{7,15}$/.test(inputPhone.replace(/\D/g, ""));
     if (!phoneOK) {
         alert("Invalid phone number (7–15 digits).");
+        return;
+    }
+
+    const duplicate = participantsList.some(p => (p.email || "").toLowerCase() === inputEmail);
+    if (duplicate) {
+        alert("This email is already registered.");
         return;
     }
 
