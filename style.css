@@ -3,12 +3,16 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #fefefe;
+}
+
 h1 {
     text-align: center;
 }
 
 #must {
-    color: red;
+    color: #c1121f;
 }
 
 #search {
@@ -16,6 +20,8 @@ h1 {
     width: 83% !important;
     margin: 5px auto !important;
     padding: 10px;
+    background-color: white !important;
+
 }
 
 .search-btn {
@@ -23,10 +29,12 @@ h1 {
     margin: 5px auto;
     padding: 5px;
     width: 15%;
-    background-color: blue;
+    background-color: #0a6ffc !important;
     cursor: pointer;
     border-radius: 2px;
     color: white;
+    border: 1px solid #0a6ffc;
+
 }
 
 .div-search {
@@ -44,8 +52,17 @@ table,
 td,
 th {
     border-collapse: collapse;
-    border: 1px gray solid;
+    border: 1px rgb(178, 175, 175) solid;
     padding: 10px;
+
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
 label,
@@ -54,10 +71,15 @@ input {
     width: 95%;
     margin: 10px auto !important;
     height: 30px;
+
 }
 
 input {
     padding: 5px;
+    border: 1px rgb(178, 175, 175) solid;
+    padding: 18px;
+    border-radius: 5px;
+    background-color: white !important;
 
 }
 
@@ -67,33 +89,37 @@ label {
 
 .seminar-form,
 .participants {
-    width: 40%;
-    margin: 100px auto;
-    border: 1px solid black;
+    width: 45%;
+    margin: 70px auto;
     padding: 50px;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
+    border: none;
+    box-shadow: 5px 5px 10px 1px #c8c8c8;
+    background-color: white;
 }
 
 a {
     text-decoration: none;
     text-align: center !important;
     align-items: center;
+    color: #0a6ffc;
 }
 
 
 
 #regis-btn {
-    background-color: blue;
+    background-color: #0a6ffc;
     display: block;
     margin: auto;
     cursor: pointer;
     border-radius: 5px;
     width: 95%;
     padding: 10px;
+    border: 1px solid #0a6ffc;
     color: white;
     margin: 20px auto;
 }

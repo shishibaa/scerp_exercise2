@@ -24,7 +24,11 @@ function render(list) {
       <td>${p.name}</td>
       <td>${p.email}</td>
       <td>${p.phone}</td>
-      <td><button data-index="${index}" class="delete-btn">Delete</button></td>
+      <td><button data-index="${index}" class="delete-btn" style="background-color: #ff4343ff;
+    cursor: pointer;
+    border-radius: 3px;
+    color: white;
+    border: none; padding: 5px 10px; ">Delete</button></td>
     `;
         tbody.appendChild(tr);
     });
