@@ -40,9 +40,9 @@ tbody.addEventListener("click", (e) => {
     if (!btn) return;
     const index = Number(btn.getAttribute("data-index"));
     const list = getList();
-    list.splice(index, 1);        // ลบคนที่ตำแหน่ง index
-    saveList(list);               // เซฟกลับลง localStorage
-    render(getList());            // render ใหม่
+    list.splice(index, 1);        
+    saveList(list);               
+    render(getList());            
 });
 
 function doSearch() {
@@ -63,5 +63,4 @@ searchInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") doSearch();
 });
 
-// ----- โหลดครั้งแรก -----
 render(getList());
