@@ -63,8 +63,5 @@ function doSearch() {
     render(filtered);
 }
 searchBtn.addEventListener("click", doSearch);
-searchInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") doSearch();
-});
 
 render(getList());
