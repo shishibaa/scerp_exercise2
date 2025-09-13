@@ -7,8 +7,7 @@ const regisBtn = document.getElementById("regis-btn");
 function addParticipants() {
     const inputName = document.getElementById("name-input").value;
     const inputEmail = document.getElementById("email-input").value;
-    const inputPhoneRaw = document.getElementById("tel-input").value;
-    const inputPhone = inputPhoneRaw.replace(/\D/g, ""); // เก็บเฉพาะตัวเลข
+    const inputPhone = document.getElementById("tel-input").value;
     const participants = {
         name: inputName,
         email: inputEmail,
