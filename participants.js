@@ -15,7 +15,6 @@ function render(list) {
     tbody.innerHTML = "";
     if (!list.length) {
         tbody.innerHTML = `<tr><td style="padding: 15px; text-align: center;" colspan="4">No participants yet.</td></tr>`;
-        return;
     }
 
     list.forEach((p, index) => {
@@ -44,7 +43,6 @@ function deleteItem(index) {
 
 tbody.addEventListener("click", (e) => {
     const btn = e.target.closest(".delete-btn");
-    if (!btn) return;
     const index = Number(btn.dataset.index);
     if (Number.isInteger(index)) deleteItem(index);
 });
@@ -54,7 +52,6 @@ function doSearch() {
     const list = getList();
     if (!sInput) {
         render(list);
-        return;
     }
     const filtered = list.filter(p =>
         (p.name || "").toLowerCase().includes(sInput) ||
