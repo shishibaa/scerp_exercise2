@@ -35,26 +35,30 @@ function render(list) {
 
 }
 
+function deleteItem(index) {
+    const list = getList();
+    list.splice(index, 1);
+    saveList(list);
+    render(list);
+}
+
 tbody.addEventListener("click", (e) => {
     const btn = e.target.closest(".delete-btn");
     if (!btn) return;
-    const index = Number(btn.getAttribute("data-index"));
-    const list = getList();
-    list.splice(index, 1);        
-    saveList(list);               
-    render(getList());            
+    const index = Number(btn.dataset.index);
+    if (Number.isInteger(index)) deleteItem(index);
 });
 
 function doSearch() {
-    const q = (searchInput.value || "").trim().toLowerCase();
+    const sInput = (searchInput.value || "").trim().toLowerCase();
     const list = getList();
-    if (!q) {
+    if (!sInput) {
         render(list);
         return;
     }
     const filtered = list.filter(p =>
-        (p.name || "").toLowerCase().includes(q) ||
-        (p.email || "").toLowerCase().includes(q)
+        (p.name || "").toLowerCase().includes(sInput) ||
+        (p.email || "").toLowerCase().includes(sInput)
     );
     render(filtered);
 }
