@@ -33,12 +33,6 @@ function addParticipants() {
         return;
     }
 
-    const duplicate = participantsList.some(p => (p.email || "").toLowerCase() === inputEmail);
-    if (duplicate) {
-        alert("This email is already registered.");
-        return;
-    }
-
     participantsList.push(participants);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(participantsList));
 }
