@@ -26,22 +26,18 @@ function addParticipants() {
 
     if (Name.trim() === "" || Email.trim() === "" || Phone === "") {
         alertMsg.innerHTML = "Error: Invalid input.";
-
         return false;
     }
 
     const emailOK = /.+@.+\..+/.test(Email);
     if (!emailOK) {
         alertMsg.innerHTML = "Error: Invalid Email format.";
-
         return false;
     }
 
     const phoneOK = /^\d{7,15}$/.test(Phone.replace(/\D/g, ""));
     if (!phoneOK) {
         alertMsg.innerHTML = "Invalid phone number (7–15 digits).";
-
-
         return false;
     }
 
