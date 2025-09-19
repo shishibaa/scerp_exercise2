@@ -34,7 +34,6 @@ function render(list) {
 
 }
 
-
 function deleteItem(id) {
     let list = getList();
     const targetId = Number(id);
@@ -42,7 +41,6 @@ function deleteItem(id) {
     saveList(list);
     render(list);
 }
-
 
 function doSearch() {
     const sInput = (searchInput.value || "").trim().toLowerCase();
@@ -59,6 +57,5 @@ function doSearch() {
 }
 
 searchBtn.addEventListener('click', doSearch);
-
 render(getList());
 window.deleteItem = deleteItem;
