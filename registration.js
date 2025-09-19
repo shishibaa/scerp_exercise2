@@ -2,45 +2,63 @@ const STORAGE_KEY = 'seminarParticipants';
 let participantsList = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
 const regisBtn = document.getElementById("regis-btn");
-
+const successMsg = document.getElementById("successful");
+const alertMsg = document.getElementById("alert");
+const inputName = document.getElementById("name-input");
+const inputEmail = document.getElementById("email-input");
+const inputPhone = document.getElementById("tel-input");
 
 function addParticipants() {
-    const inputName = document.getElementById("name-input").value;
-    const inputEmail = document.getElementById("email-input").value;
-    const inputPhone = document.getElementById("tel-input").value;
+    const Name = inputName.value;
+    const Email = inputEmail.value;
+    const Phone = inputPhone.value;
+    const ID = Date.now();
+
+    alertMsg.innerHTML = ""
+    successMsg.innerHTML = "";
+
     const participants = {
-        name: inputName,
-        email: inputEmail,
-        phone: inputPhone
+        name: Name,
+        email: Email,
+        phone: Phone,
+        id: ID
     }
 
+    if (Name.trim() === "" || Email.trim() === "" || Phone === "") {
+        alertMsg.innerHTML = "Error: Invalid input.";
 
-    if (inputName.trim() === "" || inputEmail.trim() === "" || inputPhone === "") {
-        alert("Error: Invalid input.");
-        return;
+        return false;
     }
 
-    const emailOK = /.+@.+\..+/.test(inputEmail);
+    const emailOK = /.+@.+\..+/.test(Email);
     if (!emailOK) {
-        alert("Invalid email format.");
-        return;
+        alertMsg.innerHTML = "Error: Invalid Email format.";
+
+        return false;
     }
 
-    const phoneOK = /^\d{7,15}$/.test(inputPhone.replace(/\D/g, ""));
+    const phoneOK = /^\d{7,15}$/.test(Phone.replace(/\D/g, ""));
     if (!phoneOK) {
-        alert("Invalid phone number (7–15 digits).");
-        return;
+        alertMsg.innerHTML = "Invalid phone number (7–15 digits).";
+
+
+        return false;
     }
 
     participantsList.push(participants);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(participantsList));
+    return true;
 }
 
 regisBtn.addEventListener("click", function (e) {
-    addParticipants();
-    e.preventDefault();
-    document.getElementById("name-input").value = "";
-    document.getElementById("email-input").value = "";
-    document.getElementById("tel-input").value = "";
+    const add = addParticipants();
+    if (!add) {
+        e.preventDefault();
+    } else {
+        successMsg.innerHTML = "Successfully Registered!";
+        inputName.value = "";
+        inputPhone.value = "";
+        inputEmail.value = "";
+    }
 }
 );

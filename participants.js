@@ -15,43 +15,41 @@ function render(list) {
     tbody.innerHTML = "";
     if (!list.length) {
         tbody.innerHTML = `<tr><td style="padding: 15px; text-align: center;" colspan="4">No participants yet.</td></tr>`;
+        return;
     }
 
     list.forEach((p, index) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-      <td>${p.name}</td>
-      <td>${p.email}</td>
-      <td>${p.phone}</td>
-      <td><button data-index="${index}" class="delete-btn" style="background-color: #ff4343ff;
-    cursor: pointer;
-    border-radius: 3px;
-    color: white;
-    border: none; padding: 5px 10px; ">Delete</button></td>
-    `;
+                    <td>${p.name}</td>
+                    <td>${p.email}</td>
+                    <td>${p.phone}</td>
+                    <td class="actions">
+                        <button data-id="${p.id}" class="delete-btn" onclick="deleteItem(${p.id})">Delete</button>
+                    </td>
+                    `;
+
         tbody.appendChild(tr);
     });
 
 }
 
-function deleteItem(index) {
-    const list = getList();
-    list.splice(index, 1);
+
+function deleteItem(id) {
+    let list = getList();
+    const targetId = Number(id);
+    list = list.filter(item => item.id !== targetId);
     saveList(list);
     render(list);
 }
 
-tbody.addEventListener("click", (e) => {
-    const btn = e.target.closest(".delete-btn");
-    const index = Number(btn.dataset.index);
-    if (Number.isInteger(index)) deleteItem(index);
-});
 
 function doSearch() {
     const sInput = (searchInput.value || "").trim().toLowerCase();
     const list = getList();
     if (!sInput) {
         render(list);
+        return
     }
     const filtered = list.filter(p =>
         (p.name || "").toLowerCase().includes(sInput) ||
@@ -59,6 +57,7 @@ function doSearch() {
     );
     render(filtered);
 }
-searchBtn.addEventListener("click", doSearch);
+
+searchBtn.addEventListener('click', doSearch);
 
 render(getList());
