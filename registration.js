@@ -63,4 +63,3 @@ regisBtn.addEventListener("click", function (e) {
 }
 );
 
-window.deleteItem = deleteItem;

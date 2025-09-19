@@ -61,3 +61,4 @@ function doSearch() {
 searchBtn.addEventListener('click', doSearch);
 
 render(getList());
+window.deleteItem = deleteItem;
